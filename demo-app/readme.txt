@@ -12,5 +12,6 @@ Simple linux script example :
 google-chrome --disable-web-security --allow-access-from-files $*
 
 bla
+bla
 
 Data generation script can be found here : http://jsfiddle.net/srFzy/5/

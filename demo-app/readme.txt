@@ -11,5 +11,6 @@ To run it without a server you have to disable security in google chrome.
 Simple linux script example :
 google-chrome --disable-web-security --allow-access-from-files $*
 
+bla
 
 Data generation script can be found here : http://jsfiddle.net/srFzy/5/

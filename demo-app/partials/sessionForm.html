@@ -1,0 +1,12 @@
+<div id="sessionFormContainer" ng-controller="SessionCtrl">
+  <h1>Session :</h1>
+
+  <form class="form-horizontal" ng-submit="findSession()" ng-init="loadSessions()">
+    <label>Code de session :</label>
+    <input type="text" name="session" ng-model="sessionID" autofocus list="availableSessions" placeholder="TEST, LUCENE, CONT_DELIVERY" class="large" />
+    <datalist id="availableSessions">
+      <option ng-repeat="session in sessions" value="{{session.sessionID}}">
+    </datalist>
+    <button type="submit" class="btn btn-primary">ok</button>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+!define TEST_SYSTEM {slim}
+
+!path fitnesse-standalone.jar
+
+!|import|
+|com.devoxx.tests.fixtures|
+
+!1 En tant qu’utilisateur, je veux consulter la liste des participants
+
+!|Script|DemoFitnesseFixture|
+|ouvrir la page|localhost:8888|
+|renseigner|TEST|dans le champ|session |
+|attendre le tableau|
+|check|le nombre de lignes est|29|
+|fermer le navigateur|

@@ -1,0 +1,8 @@
+target
+*.zip
+FitNesseRoot/ErrorLogs
+FitNesseRoot/RecentChanges
+FitNesseRoot/FitNesse
+FitNesseRoot/DemoFitnesseSuite/content.txt
+testResults
+.metadata

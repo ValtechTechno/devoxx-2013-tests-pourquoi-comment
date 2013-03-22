@@ -1,0 +1,38 @@
+[
+  {
+    "code":"TEST",
+    "company":"VALTECH",
+    "duration":"1",
+    "room":"G14",
+    "sessionID":"TEST",
+    "site":"Paris",
+    "startDate":"2013-03-22T00:00:00+02:00",
+    "title":"Les tests, pourquoi et comment",
+    "trainer":"Xavier, Axel et Grégory",
+    "type":"inter"
+  },
+  {
+    "code":"LUCENE",
+    "company":"VALTECH",
+    "duration":"3",
+    "room":"H8",
+    "sessionID":"LUCENE",
+    "site":"Paris",
+    "startDate":"2012-03-23T00:00:00+02:00",
+    "title":"Développement avec Lucene",
+    "trainer":"Majirus",
+    "type":"inter"
+  },
+  {
+    "code":"CONT_DELIVERY",
+    "company":"VALTECH",
+    "duration":"2",
+    "room":"H8",
+    "sessionID":"CONT_DELIVERY",
+    "site":"Paris",
+    "startDate":"2012-03-23T00:00:00+02:00",
+    "title":"Continuous Delivery",
+    "trainer":"Pierre et Eric",
+    "type":"inter"
+  }
+]

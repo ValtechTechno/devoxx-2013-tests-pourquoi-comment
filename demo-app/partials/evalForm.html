@@ -1,0 +1,30 @@
+<div id="evalContainer" ng-controller="EvalCtrl">
+  <h1>Evaluation :</h1>
+
+  <form class="form-horizontal" ng-submit="saveEval()" ng-model="eval">
+    <div class="control-group">
+      <label class="radio" for="q1">
+        <select id="q1" name="expectation-met" ng-model="eval.q1">
+          <option value="true">oui</option>
+          <option value="false">non</option>
+        </select>
+        Cette session a-t-elle répondue à vos attentes ?
+      </label>
+    </div>
+    <div class="control-group">
+      <label class="radio" for="q2">
+        <select id="q2" name="tell-friends" ng-model="eval.q2">
+          <option value="true">oui</option>
+          <option value="false">non</option>
+        </select>
+        Recommanderiez-vous cette session à quelqu'un d'autre ?
+      </label>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary">ok</button>
+      </div>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,33 @@
+<div id="attendeesContainer" ng-controller="AttendeeCtrl">
+  <h1>Informations participant :</h1>
+
+  <form class="form-horizontal" ng-submit="updateAttendee(attendee)" ng-model="attendee" ng-init="loadAttendee()">
+    <div class="control-group">
+      <label class="control-label" for="firstName">Prénom :</label>
+
+      <div class="controls">
+        <input type="text" name="firstName" id="firstName" ng-model="attendee.firstName" placeholder="John" ng-change="changeAttendee()"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="lastName">Nom :</label>
+
+      <div class="controls">
+        <input type="text" name="lastName" id="lastName" ng-model="attendee.lastName" placeholder="Doe" ng-change="changeAttendee()"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="company">Société :</label>
+
+      <div class="controls">
+        <input type="text" name="company" id="company" ng-model="attendee.company" placeholder="World company" ng-change="changeAttendee()"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary">ok</button>
+      </div>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,22 @@
+<div id="attendeesContainer" ng-controller="AttendeeCtrl" ng-init="loadAttendees()">
+  <h1>Attendees :</h1>
+  <table class="table table-striped table-hover table-bordered" ng-show="attendees.length" ng-cloak>
+    <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Name</th>
+      <th>Company</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="attendeeItem" ng-repeat="attendee in attendees" onclick="location.hash = '#/session/{{attendee.sessionVTID}}/attendee/{{attendee.attendeeVTID}}'">
+      <td>{{attendee.firstName}}</td>
+      <td>{{attendee.lastName}}</td>
+      <td>{{attendee.company}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="btn-group">
+    <a class="btn btn-primary" href="#/session/{{attendee.sessionVTID}}/attendee">Je ne suis pas dans la liste</a>
+  </div>
+</div>

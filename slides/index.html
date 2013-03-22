@@ -1,0 +1,1032 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <title>[Devoxx 2013] Les tests : pourquoi et comment ?</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1274, user-scalable=no">
+    <link rel="stylesheet" href="themes/mozilla/styles/style.css" media="all">
+    <link rel="stylesheet" href="themes/mozilla/styles/print.css" media="print">
+    <style>
+        .axel, .progress div.axel       { background-color: #00BB3F; }
+        .xavier, .progress div.xavier   { background-color: #FF8300; }
+        .gregory, .progress div.gregory { background-color: #D8005F; }
+	</style>
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Les tests : pourquoi et comment ?</h1>
+		<p>Axel Haustant, Xavier Renaudin et Grégory Paul</p>
+	</header>
+
+    <div class="slide cover w" id="title"><div>
+        <style scoped>
+            #title header   {
+                font-family: 'OpenSansRegular', 'Helvetica', sans-serif;
+                background: rgba(255, 255, 255, .7);
+                position: absolute;
+                top: 18%;
+                bottom: 18%;
+                left: 0;
+                width: 100%;
+                text-shadow: 3px 3px 3px rgba(150, 150, 150, .8);
+            }
+            #title h1,
+            #title h2 { text-align:center; display: block; }
+            #title h1 { font-size: 90px; text-transform: uppercase; }
+            #title h2 { font-size: 40px; }
+        </style>
+        <section>
+            <header>
+                <h1>Les tests : pourquoi et comment ?</h1>
+                <h2>14h30 - 15h20 - Salle La Seine C</h2>
+            </header>
+            <img src="pictures/devoxx-background.jpg" alt="">
+        </section>
+    </div></div>
+
+    <div class="slide" id="speakers"><div>
+        <style scoped>
+            #speakers span { width: 32%; display: inline-block; text-align: center; height: 55%; color:white; }
+            #speakers span p { font-size: .8em; margin: .5em; }
+            #speakers span img { border: 2px solid white; border-radius: 2px; }
+            #speakers .companies { width: 100%; text-align: center; margin-top: 1em; }
+        </style>
+        <section>
+            <header>
+                <h2>Présentation</h2>
+            </header>
+            <div>
+                <span class="axel">
+                    <h3>Axel</h3>
+                    <img src="pictures/axel.gif" />
+                    <p>Développeur Python,<br>Équipe Data</br></p>
+                </span>
+                <span class="xavier">
+                    <h3>Xavier</h3>
+                    <img src="pictures/xavier.gif" />
+                    <p>Analyste fonctionnel,<br>Équipe PO</p>
+                </span>
+                <span class="gregory">
+                    <h3>Grégory</h3>
+                    <img src="pictures/gregory.gif" />
+                    <p>Développeur JavaScript,<br>Équipe Web</p>
+                </span>
+            </div>
+            <p class="companies">
+                <img src="pictures/valtech.png" />
+                <img src="pictures/mappy.png" />
+            </p>
+            <footer class="notes">
+                Nous présenter, expliquer nos 3 profils différents et complémentaires, présenter les 2 parties : pourquoi et comment
+            </footer>
+        </section>
+    </div></div>
+
+    <div class="slide" id="mappy" data-speaker="gregory"><div>
+        <style scoped>
+            #mappy img { max-width: 460px;}
+        </style>
+        <section>
+            <header>
+                <h2>Mappy, c’est quoi ?</h2>
+            </header>
+            <p class="center">
+                <a href="http://fr.mappy.com/new" class="noborder"><img class="border" src="pictures/mappy-main.jpg" /></a>
+            </p>
+        </section>
+    </div></div>
+
+    <div class="slide" id="sommaire" data-speaker="gregory"><div>
+        <style scoped>
+            #sommaire ol              { list-style-type: decimal; }
+            #sommaire li              { margin: 1em 0; }
+            #sommaire .h2 span        {
+                text-transform: uppercase;
+                padding: .1em .5em;
+                color: white;
+                background-color: #3E3E3E;
+                border: 1px solid #3E3E3E;
+                border-radius: 4px;
+            }
+            #sommaire .h3             { display: none; /* Not showing sub-title for now  */ }
+        </style>
+        <section>
+            <header>
+                <h2>Sommaire</h2>
+            </header>
+            <ol class="auto"><!-- Contenu auto-généré par du JavaScript --></ol>
+        </section>
+    </div></div>
+
+    <div class="slide shout cover w" id="idees-recues" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2><span>Idées reçues</span></h2>
+            </header>
+            <img src="pictures/earth.jpg" />
+        </section>
+    </div></div>
+
+    <div class="slide" id="idees-recues-douter" data-speaker="axel"><div>
+        <style scoped>
+            #idees-recues-douter blockquote { font-size: .75em; margin: 2em 0; }
+            #idees-recues-douter blockquote:before { font-size: 180px; }
+        </style>
+        <section>
+            <header>
+                <h2>On l’a tous entendu</h2>
+                <h3><span>Idées reçues</span></h3>
+            </header>
+			<blockquote>
+                Je perds du temps à réfléchir comment tester alors que j’ai déjà écrit mon code…
+            </blockquote>
+			<blockquote>
+                Nos tests sont rouges depuis trop longtemps, du coup on ne les regarde plus…
+            </blockquote>
+			<blockquote>
+                Les développeurs disent tout tester et pourtant on trouve encore des bugs…
+            </blockquote>
+			<blockquote>
+                Le fonctionnel/IHM/Architecture du projet est trop compliqué pour pouvoir être testé…
+            </blockquote>
+			<blockquote>
+                Je ne pourrais tester que quand l’application sera terminée…
+            </blockquote>
+        </section>
+    </div></div>
+
+    <div class="slide" id="idees-recues-maintenance" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Maintenir des tests coûte cher</h2>
+                <h3><span>Idées reçues</span></h3>
+            </header>
+            <p>Oui, les tests  ont un coût, mais :</p>
+            <ul>
+                <li>Mieux vaux faire grossir la base de tests plutôt que l'équipe de test
+                <li>Un incident en production coûtera bien plus cher !
+                <li>Le <abbr title="Return On investment">ROI</abbr> sur le long terme est élevé
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="idees-recues-complique" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Trop compliqué à écrire</h2>
+                <h3><span>Idées reçues</span></h3>
+            </header>
+            <strong>Attention :</strong>
+            <ul>
+                <li>Mauvais choix d'outils
+                <li>Mauvaise conception
+                <li>Ne tester que ce qui est nécéssaire
+                <li>Le legacy est un cas particulier
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide shout cover w" id="pourquoi" data-speaker="xavier"><div>
+    <section>
+        <header>
+            <h2><span>Pourquoi ?</span></h2>
+        </header>
+        <img src="pictures/earth.jpg" />
+    </section>
+    </div></div>
+
+	<div class="slide" id="pourquoi-definir" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Définir</h2>
+                <h3><span>Pourquoi ?</span></h3>
+            </header>
+            <ul>
+				<li>Spécifie efficacement le produit
+					<ul>
+						<li>Toujours à jour (&ne; Documents de spécification)</li>
+						<li>Lisible (&ne; code)</li>
+					</ul>
+				</li>
+                <li>"Definition Of Done"
+					<ul>
+                        <li><span class="good">Vert</span> = Ce que le produit sait faire</li>
+                        <li><span class="bad">Rouge</span> = Ce que le produit devrait faire</li>
+					</ul>
+				</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="pourquoi-valider" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Valider</h2>
+                <h3><span>Pourquoi ?</span></h3>
+            </header>
+
+			<ul>
+				<li>Valide le "Done"
+					<ul>
+                        <li><span class="good">Vert</span> = Done. On peut passer (penser) à autre chose</li>
+					</ul>
+				</li>
+				<li>Feedback sur la "Situation Of Done"
+					<ul>
+                        <li><span class="bad">Rouge</span> = Work In Progress. On sait exactement ce qu'il reste à faire</li>
+					</ul>
+				</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="pourquoi-detecter" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Détecter</h2>
+                <h3><span>Pourquoi ?</span></h3>
+            </header>
+            <ul>
+				<li>Non-regression du produit
+					<ul>
+                        <li><span class="bad">Rouge</span> = Quelque chose a fait casser le test</li>
+					</ul>
+				</li>
+				<li>Amélioration continue
+					<ul>
+						<li>Nouveau bug ⇨ Nouveau test</li>
+					</ul>
+				</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide shout cover w" id="comment" data-speaker="gregory"><div>
+    <section>
+        <header>
+            <h2><span>Comment ?</span></h2>
+        </header>
+        <img src="pictures/earth.jpg" />
+    </section>
+    </div></div>
+
+    <div class="slide shout cover w" id="comment-implication" data-speaker="gregory"><div>
+        <section>
+            <header>
+                <h3>Implication</h3>
+            </header>
+            <img src="pictures/Sky.jpg" alt="">
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-leader" data-speaker="gregory"><div>
+        <section>
+            <header>
+                <h2>Ligne directrice</h2>
+                <h3><span>Comment ?</span>Implication</h3>
+            </header>
+            <ul>
+                <li>Stratégie pour vos tests</li>
+                <li>Vision partagée</li>
+                <li>Parlez-en</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-motivation" data-speaker="gregory"><div>
+        <style>
+            #comment-motivation .imgs { float: right; }
+            #comment-motivation .imgs img { display: block; margin: 0 0 1em 1em; }
+            #comment-motivation .jenkins { margin-left: 220px; }
+        </style>
+        <section>
+            <header>
+                <h2>Motivation / Envie</h2>
+                <h3><span>Comment ?</span>Implication</h3>
+            </header>
+            <p class="imgs">
+                <a href="http://www.happyprog.com/pairhero/"><img src="pictures/pairhero.png"/></a>
+                <a href="http://www.happyprog.com/tdgotchi/"><img src="pictures/tdgotchi.png"/></a>
+            </p>
+            <ul>
+                <li>Code review, Coding dojo</li>
+                <li>Pair programming, <abbr title="Test Driven Development">TDD</abbr> / <abbr title="Acceptance Test Driven Development">ATDD</abbr></li>
+                <li>Faites en un jeu</li>
+            </ul>
+            <a href="https://wiki.jenkins-ci.org/display/JENKINS/The+Continuous+Integration+Game+plugin" class="noborder jenkins"><img src="pictures/jenkins-score.png" /></a>
+            <a href="http://www.happyprog.com/pulse/" class="noborder"><img src="pictures/pulse.png"/></a>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-stop-the-line" data-speaker="gregory"><div>
+        <style scoped>
+            #comment-stop-the-line p { float: right; margin: .5em 0 .5em 0; }
+            #comment-stop-the-line img { max-height: 200px; }
+        </style>
+        <section>
+            <header>
+                <h2>No Broken window / Stop the line</h2>
+                <h3><span>Comment ?</span>Implication</h3>
+            </header>
+            <p>
+                <img class="border" src="pictures/stop.jpg" />
+                <img class="border" src="pictures/build-wall.png" />
+            </p>
+            <ul>
+                <li>Une stratégie face au build rouge</li>
+                <li>Pas de fonctionalités tant que le build est rouge</li>
+                <li>Binôme de maintenance responsable du build (et des tests)</li>
+            </ul>
+        </section>
+    </div></div>
+
+
+    <div class="slide shout cover w" id="comment-experience" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h3>Expérience</h3>
+            </header>
+            <img src="pictures/Sky.jpg" alt="">
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-priorisation" data-speaker="xavier"><div>
+        <style scoped>
+            #comment-priorisation img { float: right; margin-right: 5em; }
+        </style>
+        <section>
+            <header>
+                <h2>Savoir Prioriser</h2>
+                <h3><span>Comment ?</span>Expérience</h3>
+            </header>
+			<img src="pictures/cohn-pyramid.png" />
+            <h3>Priorisation verticale</h3>
+            <ul>
+                <li>Pyramide de Cohn</li>
+            </ul>
+            <h3>Priorisation horizontale</h3>
+            <ul>
+                <li>Chemin critique</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-exploratoire" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Savoir Explorer</h2>
+                <h3><span>Comment ?</span>Expérience</h3>
+            </header>
+            <ul>
+                <li>Sortir du chemin critique</li>
+				<li>Anticiper</li>
+				<li>Remise en question</li>
+			</ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-redondance" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Savoir éviter les redondances</h2>
+                <h3><span>Comment ?</span>Expérience</h3>
+            </header>
+            <ul>
+                <li>Eviter de dire plusieurs fois la même chose</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide shout cover w" id="comment-visibilite" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h3>Visibilité</h3>
+            </header>
+            <img src="pictures/Sky.jpg" alt="">
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-integration-continue" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Intégration continue</2>
+                <h3><span>Comment ?</span>Visibilité</h3>
+            </header>
+            <ul>
+                <li>Tester en continu et dès le début du projet</li>
+                <li>Votre produit n'est pas seul</li>
+                <li>Tout le monde doit savoir que le produit fonctionne (ou pas)</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-accessibilite" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Accessible pour tous</h2>
+                <h3><span>Comment ?</span>Visibilité</h3>
+            </header>
+            <ul>
+                <li>Tests doivent être visibles par tout le monde</li>
+                <li>Rapport de tests Jenkins</li>
+                <li>Notification systématique</li>
+            </ul>
+        </section>
+    </div></div>
+
+	<div class="slide" id="comment-partage" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Partage</h2>
+                <h3><span>Comment ?</span>Visibilité</h3>
+            </header>
+            <ul>
+                <li>Tests écrits par l’équipe et le PO</li>
+                <li>Affichez vos métriques</li>
+                <li>Parlez-en entre vous</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide shout demo cover w" id="comment-demo-fitnesse" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h3>Démo FitNesse</h3>
+            </header>
+            <img src="pictures/xylofon.jpg"/>
+        </section>
+    </div></div>
+
+	<div class="slide shout cover w" id="comment-lisibilite" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h3>Lisibilité</h3>
+            </header>
+            <img src="pictures/Sky.jpg" alt="">
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-given-when-then" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Given / When / Then</h2>
+                <h3><span>Comment ?</span>Lisibilité</h3>
+            </header>
+            <pre class="good">
+                <code>// <mark class="good">Given</mark></code>
+                <code>User user = new User();</code>
+                <code>user.setPlainTextPassword("password");</code>
+                <code> </code>
+                <code>// <mark class="good">When</mark></code>
+                <code>String hashedPassword = user.getHashedPassword(salt);</code>
+                <code> </code>
+                <code>// <mark class="good">Then</mark></code>
+                <code>assertThat(hashedPassword).isEqualTo("4ccc916...");</code>
+            </pre>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-documentation" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Documentation par le code</h2>
+                <h3><span>Comment ?</span>Lisibilité</h3>
+            </header>
+            <pre class="bad">
+                <code>TestBadFormat1()</code>
+            </pre>
+            <pre class="good">
+                <code>given_file_with_no_extension_import_should_fail()</code>
+            </pre>
+            <ul>
+                <li>Intention de test (via le nom de méthode)</li>
+                <li>Evitez les termes trop génériques</li>
+            </ul>
+        </section>
+    </div></div>
+
+
+    <div class="slide" id="comment-explicite" data-speaker="axel"><div>
+        <style scoped>
+            #comment-explicite pre { margin: 0 0 .5em 0;}
+        </style>
+        <section>
+            <header>
+                <h2>Soyez explicite</h2>
+                <h3><span>Comment ?</span>Lisibilité</h3>
+            </header>
+            <pre class="bad xsmall">
+                <code>public void should_drop_line_when_poi_with_no_name_is_read() {</code>
+                <code>    when(matcherStepMock.run(any(FullGeoentity.class)))</code>
+                <code>        .<mark>thenThrow</mark>(new RuntimeException("I should not be called"));</code>
+                <code>    createInjector(...).getInstance(Launcher.class).<mark>run</mark>();</code>
+                <code>}</code>
+            </pre>
+            <pre class="good xsmall">
+                <code>public void should_drop_line_when_poi_with_no_name_is_read() throws Exception {</code>
+                <code>    // Given</code>
+                <code>    reader.open(PoiReaderTest.class.getResourceAsStream("/invalid_poi.csv"));</code>
+                <code>    try { // When</code>
+                <code>       reader.<mark>readLine</mark>();</code>
+                <code>    } catch(DroppingEntityException e) {</code>
+                <code>      // Then</code>
+                <code>    }</code>
+                <code>    <mark>fail</mark>("readline should have thrown DroppingEntityException");</code>
+                <code>}</code>
+            </pre>
+        </section>
+    </div></div>
+
+	<div class="slide" id="comment-utiliser-ses-propres-assertions" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Créez vos assertions</h2>
+                <h3><span>Comment ?</span>Lisibilité</h3>
+            </header>
+            <p>Factorisez les validations communes :</p>
+            <pre class="bad">
+                <code>assertThat(xml).<mark>contains("&lt;root&gt;")</mark>);</code>
+                <code>assertThat(xml).<mark>contains("&lt;child&gt;")</mark>;</code>
+                <code>assertThat(xml).<mark>contains("&lt;/child&gt;")</mark>;</code>
+                <code>assertThat(xml).<mark>contains("&lt;/root&gt;")</mark>;</code>
+            </pre>
+            <pre class="good">
+                <code>assertThat(xml).<mark>isWellFormed()</mark>;</code>
+            </pre>
+        </section>
+    </div></div>
+
+	<div class="slide shout cover w" id="comment-maintenabilite" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h3>Facilité d’écriture</h3>
+            </header>
+            <img src="pictures/Sky.jpg" alt="">
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-factorisation" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Factorisation</h2>
+                <h3><span>Comment ?</span>Facilité d’écriture</h3>
+            </header>
+            <ul>
+                <li>Passer moins de temps à écrire les tests</li>
+                <li>Utiliser les outils du framework de test</li>
+                <li>Fixtures vs Factories</li>
+                <li>Générateur</li>
+                <li>Mixins</li>
+                <li>Paramétrage</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-parametrage" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Paramétrage</h2>
+                <h3><span>Comment ?</span>Facilité d’écriture</h3>
+            </header>
+            <pre class="good xsmall">
+                <code><mark>@RunWith(Parameterized.class)</mark></code>
+                <code>public class NumberTest {</code>
+                <code>    private Integer number;</code>
+                <code>&nbsp;</code>
+                <code>    public MyUnitTest(Integer number) {</code>
+                <code>        this.number = number;</code>
+                <code>    }</code>
+                <code>&nbsp;</code>
+                <code>    <mark>@Parameters</mark></code>
+                <code>    public static Collection numbers() {</code>
+                <code>        return Arrays.asList(1, 2, 3);</code>
+                <code>    }</code>
+                <code>&nbsp;</code>
+                <code>    public void should_be_less_than_3() {</code>
+                <code>        assertThat(<mark>this.number</mark>).isLessThan(4);</code>
+                <code>    }</code>
+                <code>}</code>
+            </pre>
+        </section>
+    </div></div>
+
+
+
+    <div class="slide" id="comment-bonnes-technos-2" data-speaker="gregory"><div>
+        <section>
+            <header>
+                <h2>Choissisez des technos connues</h2>
+                <h3><span>Comment ?</span>Facilité d’écriture</h3>
+            </header>
+            <ul>
+                <li>Votre équipe fait du java : restez sur du Java !</li>
+                <li>Ne faites pas coder vos tests unitaires par un fonctionnel</li>
+                <li>Ne faites pas écrire vos tests d’acceptance par un développeur</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-bonnes-technos-1" data-speaker="gregory"><div>
+        <style scoped>
+            #comment-bonnes-technos-1 img { margin-top: 1em; }
+        </style>
+        <section>
+            <header>
+                <h2>Choissisez des technos reconnues</h2>
+                <h3><span>Comment ?</span>Facilité d’écriture</h3>
+            </header>
+            <p class="center">
+                <img class="border" src="pictures/screw.jpg" />
+            </p>
+            <blockquote>Quand on a un marteau en main, tout ressemble à un clou</blockquote>
+        </section>
+    </div></div>
+
+	<div class="slide" id="comment-valider-des-interfaces-web" data-speaker="gregory"><div>
+        <section>
+            <style scoped>
+                #comment-valider-des-interfaces-web .block { border-radius: 10px; color: white; padding: .5em 0 0 .8em; font-family: 'Asap',Helvetica,Arial,sans-serif; }
+                #comment-valider-des-interfaces-web .casper { height: 200px; background: url('pictures/casperjs-logo.png') no-repeat scroll right 10px rgb(51, 51, 51); padding-right: 200px; }
+                #comment-valider-des-interfaces-web .casper small { display: block; }
+                #comment-valider-des-interfaces-web .phantom { margin-top: -15px; height: 100px; background: url('pictures/phantomjs-logo.png') no-repeat scroll right 10px rgb(66, 65, 61); }
+                #comment-valider-des-interfaces-web .phantom img { vertical-align: middle; margin-left: 10%;}
+            </style>
+            <header>
+                <h2>Valider des interfaces Web</h2>
+                <h3><span>Comment ?</span>Facilité d’écriture</h3>
+            </header>
+            <div class="block casper">
+                CasperJS
+                <small>Étapes de tests, remplissage de formulaire, capture d’écrans, évaluation du JavaScript du client, téléchargements, événements : onResourceRequested, onResourceReceived, onLoadError,...</small>
+            </div>
+            <div class="block phantom">
+                <img src="pictures/Webkit_logo.png" style="width: 120px;" />
+                <img src="pictures/V8-logo.png" style="border: 2px solid black;"/>
+            </div>
+        </section>
+    </div></div>
+
+    <div class="slide shout demo cover w" id="demo-casper" data-speaker="gregory"><div>
+    <section>
+        <header>
+            <h3>Démo CasperJS</h3>
+        </header>
+        <img src="pictures/xylofon.jpg"/>
+    </section>
+    </div></div>
+
+	<div class="slide shout cover w" id="comment-rapidite" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h3>Rapidité d’exécution</h3>
+            </header>
+            <img src="pictures/Sky.jpg" alt="">
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-execution-conditionnelle" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Execution conditionnelle</h2>
+                <h3><span>Comment ?</span>Rapidité d’exécution</h3>
+            </header>
+            <p>Timeouts pour éviter les tests qui ne finissent pas</p>
+            <pre class="good">
+                <code>@Test(<mark>timeout</mark>=1000)</code>
+            </pre>
+            <p>Ignorer certains tests en fonction des resources</p>
+            <pre class="good">
+                <code>@Test</code>
+                <code>public void post_a_comment() {</code>
+                <code>    <mark>Assume.assumeTrue</mark>(canWriteInThatEnvironment());</code>
+                <code>}</code>
+            </pre>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-empreinte-minimale" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Empreinte minimale</h2>
+                <h3><span>Comment ?</span>Rapidité d’exécution</h3>
+            </header>
+            <ul>
+                <li><code>@Before/@After</code> vs <code>@BeforeClass/@AfterClass</code></li>
+                <li>Ne chargez pas tout à chaque test</li>
+                <li>Fixtures vs Factories</li>
+                <li>Mocks et stubs</li>
+                <li>Attention à l'injection de dépendances</li>
+            </ul>
+        </section>
+    </div></div>
+
+	<div class="slide" id="comment-paralleliser" data-speaker="gregory"><div>
+        <style scoped>
+            img { margin-right: 0; }
+        </style>
+        <section>
+            <header>
+                <h2>Paralléliser</h2>
+                <h3><span>Comment ?</span>Rapidité d’exécution</h3>
+            </header>
+            <p class="center">
+                <a href="https://maven.apache.org/" class="noborder"><img src="pictures/logo-maven.png" /></a>
+                <a href="https://www.gnu.org/software/parallel/" class="noborder"><img src="pictures/gnu-parallel.png" /></a>
+                <a href="http://www.slideshare.net/anickelsen/scaling-your-jenkins-ci-pipeline" class="noborder"><img class="border" src="pictures/scale-jenkins.png" /></a>
+            </p>
+            <pre class="good">
+                <code>mvn <mark>-T 4</mark> test</code>
+                <code>ls suites/ | <mark>parallel</mark> "casperjs test suites/{}"</code>
+            </pre>
+        </section>
+    </div></div>
+
+	<div class="slide" id="comment-eviter-wait" data-speaker="gregory"><div>
+        <section>
+            <header>
+                <h2>Empêchez les de dormir</h2>
+                <h3><span>Comment ?</span>Rapidité d’exécution</h3>
+            </header>
+            <pre class="bad">
+                <code>driver.findElement(By.name("q")).sendKeys("devoxx");</code>
+                <code><mark>Thread.sleep(1000);</mark></code>
+            </pre>
+            <pre class="good">
+                <code>driver.findElement(By.name("q")).sendKeys("devoxx");</code>
+                <code><mark>(new WebDriverWait(driver, 10)).until(</mark></code>
+                <code>  new ExpectedCondition() {</code>
+                <code>    public Boolean apply(WebDriver d) {</code>
+                <code>        return d.findElements(By.cssSelector(...);</code>
+                <code>  }});</code>
+            </pre>
+        </section>
+    </div></div>
+
+	<div class="slide shout cover w" id="comment-analysabilite" data-speaker="gregory"><div>
+        <section>
+            <header>
+                <h3>Analyse</h3>
+            </header>
+            <img src="pictures/Sky.jpg" alt="">
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-un-test-par-besoin" data-speaker="gregory"><div>
+        <style scoped>
+            #comment-un-test-par-besoin h2  { margin-bottom: 10px; }
+            #comment-un-test-par-besoin p   { margin: 0; }
+            #comment-un-test-par-besoin pre { margin: 0 0 4px 0; }
+        </style>
+        <section>
+            <header>
+                <h2>Un besoin par test</h2>
+                <h3><span>Comment ?</span>Analyse</h3>
+            </header>
+            <p>1 besoin/test &ne; 1 assertion/test &ne; n besoins/test</p>
+            <pre class="bad">
+                <code>public void <mark>should_cleanup_kitchen</mark>() {</code>
+                <code>    assertThat(makeCoffee()).isHot().isTasty();</code>
+                <code>    assertThat(washTheDishes()).isDone().isClean();</code>
+                <code>}</code>
+            </pre>
+            <pre class="good">
+                <code>public void <mark>should_make_coffee</mark>() {</code>
+                <code>    assertThat(makeCoffee()).isHot().isTasty();</code>
+                <code>}</code>
+                <code>public void <mark>should_wash_the_dishes</mark>() {</code>
+                <code>    assertThat(washTheDishes()).isDone().isClean();</code>
+                <code>}</code>
+            </pre>
+        </section>
+    </div></div>
+
+	<div class="slide" id="comment-decouper" data-speaker="gregory"><div>
+        <section>
+            <header>
+                <h2>Découper l’exécution</h2>
+                <h3><span>Comment ?</span>Analyse</h3>
+            </header>
+            <ul>
+                <li>Mieux vaut plusieurs petit test qu'un gros test
+                <li>Mieux découper = Mieux détecter = feedback plus rapide
+            </ul>
+            <pre class="good">
+                <code>mvn test <mark>-Dtest=MyTestClass#myTestMethod</mark></code>
+                <code>mvn test <mark>-Dtest=MyTestClass</mark></code>
+            </pre>
+            <p align="center">
+                <a href="http://infinitest.github.com/" class="noborder"><img src="pictures/infinitest-logo.png"></a>
+            </p>
+        </section>
+    </div></div>
+
+	<div class="slide" id="comment-utiliser-bonnes-assertions" data-speaker="gregory"><div>
+        <section>
+            <header>
+                <h2>Utilisez les bonnes assertions</h2>
+                <h3><span>Comment ?</span>Analyse</h3>
+            </header>
+            <pre class="bad">
+                <code>assertTrue("bar".contains("foo"));</code>
+                <code><mark>java.lang.AssertionError:</mark></code>
+                <code><mark>    at org.junit.Assert.fail(Assert.java:91)</mark></code>
+            </pre>
+            <pre class="good">
+                <code>assertThat("foo").contains("bar"));</code>
+                <code><mark>java.lang.AssertionError: </mark></code>
+                <code><mark>Expected: a string containing "bar"</mark></code>
+                <code><mark>     but: was "foo"</mark></code>
+            </pre>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-utiliser-message-assertions" data-speaker="gregory"><div>
+        <section>
+            <header>
+                <h2>Commentez vos assertions</h2>
+                <h3><span>Comment ?</span>Analyse</h3>
+            </header>
+            <pre class="bad">
+                <code>assertEquals(200, status)</code>
+                <code><mark>java.lang.AssertionError: </mark></code>
+                <code><mark>    expected:&lt;200&gt; but was:&lt;301&gt;</mark></code>
+            </pre>
+            <pre class="good">
+                <code>assertEquals("La page d’accueil ne répond pas", </code>
+                <code>  200, status);</code>
+                <code><mark>java.lang.AssertionError: </mark></code>
+                <code><mark>    La page d’accueil ne répond pas</mark></code>
+                <code><mark>    expected:&lt;200&gt; but was:&lt;301&gt;</mark></code>
+            </pre>
+        </section>
+    </div></div>
+
+
+	<div class="slide shout cover w" id="comment-amelioration" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h3>Amélioration</h3>
+            </header>
+            <img src="pictures/Sky.jpg" alt="">
+        </section>
+    </div></div>
+
+	<div class="slide" id="comment-detecter-watchdog" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Détection en continue</h2>
+                <h3><span>Comment ?</span>Amélioration</h3>
+            </header>
+            <p class="center">
+                Corruption de données ? Le service répond ?<br>
+                <img class="border" src="pictures/mine-canari.jpg" />
+            </p>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-detecter-mesures" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Mesurer les bonnes Métriques</h2>
+                <h3><span>Comment ?</span>Amélioration</h3>
+            </header>
+            <ul>
+                <li>Bonne couverture &ne; couverture à 100%</li>
+                <li>Identifier les test manuels restants</li>
+                <li>Identifier les cas aux limites non testés (conditionnal)</li>
+                <li>Identifier le code mort</li>
+            </ul>
+        </section>
+    </div></div>
+
+	<div class="slide" id="comment-evoluer" data-speaker="xavier"><div>
+        <section>
+            <header>
+                <h2>Les tests doivent évoluer</h2>
+                <h3><span>Comment ?</span>Amélioration</h3>
+            </header>
+            <ul>
+                <li>Un bug = un nouveau test</li>
+                <li>Détection comportements utilisateurs pour enrichir tests</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-refactoring" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Refactoring</h2>
+                <h3><span>Comment ?</span>Amélioration</h3>
+            </header>
+            <ul>
+                <li>Refactoring du code à périmètre fonctionnel identique : surtout ne pas modifier les tests !</li>
+                <li>Changement fonctionnel : modifier les tests avant (cible)</li>
+                <li>Les deux en même temps : <strong>problèmes !!!</strong></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="comment-detecter-bug-introduit" data-speaker="axel"><div>
+        <style scoped>
+            #comment-detecter-bug-introduit img { margin-top: 1em; }
+        </style>
+        <section>
+            <header>
+                <h2>Comprendre l'origine d'un bug</h2>
+                <h3><span>Comment ?</span>Amélioration</h3>
+            </header>
+            <p>Un test sera très efficace pour retrouver un bug déjà existant.</p>
+            <p class="center">
+                <img src="pictures/git-logo.png" />
+            </p>
+        </section>
+    </div></div>
+
+    <div class="slide shout demo cover w" id="demo-git-bisect" data-speaker="axel"><div>
+    <section>
+        <header>
+            <h3>Demo Git Bisect</h3>
+        </header>
+        <img src="pictures/xylofon.jpg"/>
+    </section>
+    </div></div>
+
+    <div class="slide shout cover w" id="conclusion" data-speaker="axel"><div>
+    <section>
+        <header>
+            <h2><span>Conclusion</span></h2>
+        </header>
+        <img src="pictures/earth.jpg" />
+    </section>
+    </div></div>
+
+    <div class="slide" id="conclusion-detail" data-speaker="axel"><div>
+        <section>
+            <header>
+                <h2>Conclusion</h2>
+            </header>
+            <ul>
+                <li>Soignez vos tests, c’est un bon investissement</li>
+                <li>Utilisez et rentabilisez les outils</li>
+                <li>Communiquez plus</li>
+                <li>N’en faîtes pas trop</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide shout cover w" id="questions"><div>
+    <section>
+        <header>
+            <h2><span>Questions ?</span></h2>
+        </header>
+        <img src="pictures/earth.jpg" />
+    </section>
+    </div></div>
+
+    <div class="slide" id="references"><div>
+    <section>
+        <header>
+            <h2>Références</h2>
+        </header>
+        <ul>
+            <li><a href="https://cfp.devoxx.com/dv12/images/earth.jpg">Terre</a> et <a href="http://www.devoxx.com/plugins/servlet/builder/resource/DEVOXX2012/bg.jpg?1339672736848">ciel</a> depuis <a href="http://www.devoxx.com/">www.devoxx.com</a>
+            <li><a href="http://blog.goneopen.com/wp-content/uploads/2010/08/cohn-test-automation-pyramid.png">Pyramide de Cohn</a> depuis <a href="http://blog.goneopen.com/2010/08/test-automation-pyramid-review/">blog.goneopen.com</a>
+            <li><a href="https://secure.flickr.com/photos/stevendepolo/4482491295/sizes/m/in/photostream/">Vis</a> depuis <a href="https://secure.flickr.com/photos/stevendepolo/4482491295/">stevendepolo's flickr photostream</a>
+            <li><a href="http://www.freefoto.com/images/13/42/13_42_55---Emergency-Stop-Button_web.jpg">Bouton stop</a> depuis <a href="http://www.freefoto.com/preview/13-42-55/Emergency-Stop-Button">freefoto.com</a>
+            <li><a href="http://www.canari-harz.fr/images/Angleterre_scott.jpg">Canari</a> depuis <a href="http://www.canari-harz.fr/historique.php">canari-harz.fr</a> <small>(avec l’aimable autorisation de l’auteur)</small>
+            <li>L’image du ciel et du xylophone sont autorisées pour l’usage de Valtech
+            <li>L’application testée provient d’<a href="https://twitter.com/olivierpenhoat">Olivier Penhoat</a>
+        </ul>
+    </section>
+    </div></div>
+
+    <div class="progress"><div></div></div>
+	<script src="scripts/script.js"></script>
+    <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net - forked from Christian Heilmann -->
+    <script>
+        (function() {
+            var generateSummary = function() {
+                var sommaire = document.querySelector('#sommaire .auto');
+
+                var titles = document.querySelectorAll('.shout header');
+                for (var i in titles) {
+                    var title = titles[i];
+                    var children = title.childNodes;
+                    if (children && children.length > 1) {
+                        var titleNode = children[1].nodeName.toLowerCase();
+                        var titleText = children[1].innerText || children[1].textContent;
+                        var item = document.createElement('li');
+                        var span = document.createElement('span');
+                        var content = document.createTextNode(titleText);
+                        span.appendChild(content);
+                        item.appendChild(span);
+                        item.className = titleNode;
+                        sommaire.appendChild(item);
+                    }
+                }
+            }
+            generateSummary();
+        })();
+    </script>
+</body>
+</html>

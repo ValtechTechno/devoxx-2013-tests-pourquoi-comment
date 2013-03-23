@@ -1,14 +1,19 @@
 Checklist
 --------
 
+# Git
 git checkout master
 
+# Slides
 firefox slides/index.html
 
-./demo-app/server.sh
-firefox localhost:8888
+# Application testée
+./demo-app/server.sh 
+firefox localhost:8888 &
 
+# Démo FitNesse
 (cd demo-fitnesse/IntegrationTests && mvn clean install) && ./demo-fitnesse/server.sh
-firefox localhost:8889 # Et tester le test fitness !
+firefox localhost:8889 & # et tester le test FitNesse !
 
-cd demo-casperjs && ./launch.sh # vérifier que les tests sont ok
+# Démo CasperJS
+cd demo-casperjs && ./launch.sh # Vérifier que les tests soient ok

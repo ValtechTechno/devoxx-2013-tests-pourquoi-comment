@@ -1,10 +1,10 @@
 # Les tests : pourquoi et comment ?
 
-Présentation sur les tests, leurs intérêts ainsi qu’un ensemble de suggestions et meilleurs pratiques tirés de notre expérience chez Mappy.
+Présentation sur les tests, leurs intérêts ainsi qu’un ensemble de suggestions et meilleures pratiques tirées de notre expérience chez Mappy.
 
-Les auteurs sont Axel Hausant, Xavier Renaudin et Grégory Paul.
+Les auteurs sont Axel Haustant, Xavier Renaudin et Grégory Paul.
 
-Cette présentation inclus 3 démos, la première sur FitNesse, la seconde sur CasperJS et la troisième sur l’intérêt d’utiliser ces tests pour lancer son git bisect.
+Cette présentation inclut 3 démos, la première sur FitNesse, la seconde sur CasperJS et la troisième sur l’intérêt de ré-utiliser ces tests automatisés pour piloter son git bisect.
 
 ## Arboresence
 

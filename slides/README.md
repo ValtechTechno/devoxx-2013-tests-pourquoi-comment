@@ -1,7 +1,7 @@
 # Shower
 Сross-browser presentation template.
 
-* Open [pepelsbey.github.com/shower/en.htm](http://pepelsbey.github.com/shower/en.htm)
+* Open [http://shwr.me/](http://shwr.me/)
 * Click any slide to enter presentation mode
 * Use arrow keys to navigate
 * Press `Esc` to exit presentation mode

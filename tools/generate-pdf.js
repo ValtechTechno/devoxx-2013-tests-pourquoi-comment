@@ -1,6 +1,6 @@
 casper.echo("Generate screenshots from slides");
 
-casper.start("http://"+casper.cli.options.domain+"/slides/", function() {
+casper.start("http://"+casper.cli.options.domain+"/", function() {
 
     this.test.assertTitle("[Devoxx 2013] Les tests : pourquoi et comment ?");
 

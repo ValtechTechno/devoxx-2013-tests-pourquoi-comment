@@ -1,0 +1,5 @@
+!contents -R2 -g -p -f -h
+!*****> '''Classpath'''
+# begin of maven classpath
+# end of maven classpath
+*****!

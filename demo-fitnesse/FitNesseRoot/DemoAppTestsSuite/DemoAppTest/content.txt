@@ -1,3 +1,4 @@
+!contents -R2 -g -p -f -h
 !define TEST_SYSTEM {slim}
 
 !path fitnesse-standalone.jar
@@ -12,4 +13,11 @@
 |renseigner|TEST|dans le champ|session |
 |attendre le tableau|
 |check|le nombre de lignes est|29|
+|fermer le navigateur|
+
+!|Script|DemoFitnesseFixture|
+|ouvrir la page|localhost:8888|
+|renseigner|TEST|dans le champ|session |
+|attendre le tableau|
+|check|le nombre de lignes est|30|
 |fermer le navigateur|
